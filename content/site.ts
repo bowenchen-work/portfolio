@@ -14,12 +14,15 @@ export const profile = {
   role: "Web developer",
   // 2–3 sentences, first person, specific. Replace this entirely.
   summary:
-    "I build and ship small web products end to end — design, code, deploy. " +
-    "I care most about the part most people skip: making the thing actually finished.",
-  location: "TODO — city, country",
-  email: "TODO@example.com",
-  github: "https://github.com/TODO",
-  linkedin: "https://www.linkedin.com/in/TODO",
+    "I'm a first-year DAW student in Madrid, previously working in systems " +
+    "administration — Linux, Windows Server, virtualisation, scripting. That " +
+    "taught me to care about how things run, not just how they look. I'm " +
+    "currently building Prism, a dashboard that makes CDC and WHO " +
+    "epidemiological data queryable in plain language.",
+  location: "Madrid, Spain",
+  email: "bowenchen.work@gmail.com",
+  github: "https://github.com/bowenchen-work",
+  linkedin: "https://www.linkedin.com/in/bowenchen-work",
   cvPath: "/cv.pdf", // drop your PDF into /public as cv.pdf
   status: "Open to junior roles",
 };
@@ -62,7 +65,7 @@ export const projects: Project[] = [
     },
     stack: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Vercel"],
     links: [
-      { label: "Source", href: "https://github.com/TODO/portfolio" },
+      { label: "Source", href: "https://github.com/bowenchen-work/portfolio" },
     ],
   },
 
