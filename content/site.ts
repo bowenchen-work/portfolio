@@ -21,7 +21,7 @@ export const profile = {
     "epidemiological data queryable in plain language.",
   location: "Madrid, Spain",
   languages: "Spanish (native) · English (near-native) · Mandarin (native spoken)",
-  email: "bowenchen.work@gmail.com",
+  email: "hello@bowenchen.dev",
   github: "https://github.com/bowenchen-work",
   linkedin: "https://www.linkedin.com/in/bowenchen-work",
   cvPath: "/cv.pdf", // drop your PDF into /public as cv.pdf
