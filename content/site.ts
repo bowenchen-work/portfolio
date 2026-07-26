@@ -20,6 +20,7 @@ export const profile = {
     "currently building Prism, a dashboard that makes CDC and WHO " +
     "epidemiological data queryable in plain language.",
   location: "Madrid, Spain",
+  languages: "Spanish (native) · English (near-native) · Mandarin (native spoken)",
   email: "bowenchen.work@gmail.com",
   github: "https://github.com/bowenchen-work",
   linkedin: "https://www.linkedin.com/in/bowenchen-work",
@@ -44,6 +45,38 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    id: "prism",
+    title: "Prism",
+    date: "2026-07",
+    status: "building",
+    oneLine:
+      "A dashboard that makes CDC and WHO epidemiological data queryable " +
+      "in plain language.",
+    problem:
+      "CDC and WHO publish authoritative epidemiological data across dozens " +
+      "of endpoints, in formats built for specialists. Answering something " +
+      "as simple as how flu activity in Spain compares to last year means " +
+      "knowing which endpoint holds it and how to parse it.",
+    approach:
+      "A FastAPI backend that ingests CDC and WHO data, chunks and embeds " +
+      "it into a pgvector store, and answers natural-language queries by " +
+      "retrieving relevant context and passing it to the Claude API. The " +
+      "backend runs; retrieval, ingestion and the dashboard are in progress.",
+    decision: {
+      title: "Retrieval over fine-tuning",
+      body:
+        "Epidemiological data changes weekly, so a fine-tuned model goes " +
+        "stale between updates and costs a retraining cycle to correct. " +
+        "Retrieval keeps the model fixed and the data live, and every " +
+        "answer can cite the dataset and fetch timestamp it came from.",
+    },
+    stack: ["Python", "FastAPI", "PostgreSQL + pgvector", "Claude API", "Next.js", "Docker"],
+    links: [
+      { label: "Source", href: "https://github.com/bowenchen-work/prism" },
+    ],
+  },
+
   {
     id: "portfolio",
     title: "bowenchen.dev",

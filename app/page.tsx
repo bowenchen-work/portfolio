@@ -34,6 +34,7 @@ export default function Home() {
 
           <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-rule pt-5">
             <li className="data">{profile.location}</li>
+            <li className="data">{profile.languages}</li>
             {[
               { label: "Email", href: `mailto:${profile.email}` },
               { label: "GitHub", href: profile.github },
