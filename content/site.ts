@@ -1,0 +1,106 @@
+// ─────────────────────────────────────────────────────────────
+// This is the only file you need to edit to update the site.
+// Rules that keep this portfolio honest:
+//   1. Never add an entry you cannot talk about for 10 minutes.
+//   2. "building" status is allowed ONLY with a real name and a
+//      real one-line description. No vague "coming soon" ghosts.
+//   3. Every project needs a `decision` — a real tradeoff you
+//      made and why. That field is the whole point of the site.
+// ─────────────────────────────────────────────────────────────
+
+export const profile = {
+  name: "Bowen Chen",
+  // One line. What you build, for whom. No adjectives like "passionate".
+  role: "Web developer",
+  // 2–3 sentences, first person, specific. Replace this entirely.
+  summary:
+    "I build and ship small web products end to end — design, code, deploy. " +
+    "I care most about the part most people skip: making the thing actually finished.",
+  location: "TODO — city, country",
+  email: "TODO@example.com",
+  github: "https://github.com/TODO",
+  linkedin: "https://www.linkedin.com/in/TODO",
+  cvPath: "/cv.pdf", // drop your PDF into /public as cv.pdf
+  status: "Open to junior roles",
+};
+
+export type Status = "live" | "building" | "archived";
+
+export type Project = {
+  id: string;
+  title: string;
+  date: string; // YYYY-MM
+  status: Status;
+  oneLine: string;
+  problem: string;
+  approach: string;
+  decision: { title: string; body: string };
+  stack: string[];
+  links: { label: string; href: string }[];
+};
+
+export const projects: Project[] = [
+  {
+    id: "portfolio",
+    title: "bowenchen.dev",
+    date: "2026-07",
+    status: "live",
+    oneLine: "This site — a work register built from scratch.",
+    problem:
+      "My previous portfolio was an unmodified Bootstrap template with placeholder " +
+      "text and no real projects. It communicated nothing about how I work.",
+    approach:
+      "Rebuilt as a statically generated Next.js site with a single typed content " +
+      "file as the source of truth, so publishing a new project is one commit and " +
+      "the layout can never drift out of sync with the data.",
+    decision: {
+      title: "A register layout instead of a card grid",
+      body:
+        "A card grid advertises how much work you have; with three projects it " +
+        "reads as empty space. A dated register reads as a complete record at any " +
+        "length, so the layout stays honest as the site grows.",
+    },
+    stack: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Vercel"],
+    links: [
+      { label: "Source", href: "https://github.com/TODO/portfolio" },
+    ],
+  },
+
+  // ── Template. Copy this for each new project. Delete before shipping. ──
+  // {
+  //   id: "slug",
+  //   title: "Project name",
+  //   date: "2026-08",
+  //   status: "building",
+  //   oneLine: "One sentence a non-technical person would understand.",
+  //   problem: "What was broken or missing. Concrete.",
+  //   approach: "What you built and how. Two sentences.",
+  //   decision: {
+  //     title: "The tradeoff, stated as a claim",
+  //     body: "What you chose, what you rejected, and why. This is the field
+  //            interviewers actually read.",
+  //   },
+  //   stack: ["...", "..."],
+  //   links: [{ label: "Live", href: "https://..." }],
+  // },
+];
+
+export type Role = {
+  title: string;
+  org: string;
+  start: string;
+  end: string; // "present" is fine
+  body: string;
+};
+
+// Delete this array entirely if you have nothing yet — an empty
+// section is worse than no section.
+export const experience: Role[] = [
+  // {
+  //   title: "Web Developer Intern",
+  //   org: "Company",
+  //   start: "2026-01",
+  //   end: "present",
+  //   body: "What you were responsible for and what shipped because of you.",
+  // },
+];
