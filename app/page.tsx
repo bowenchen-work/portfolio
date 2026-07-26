@@ -92,8 +92,7 @@ export default function Home() {
         <section className="pt-16 sm:pt-20">
           <SectionHeading>Contact</SectionHeading>
           <p className="max-w-[58ch] text-[0.9375rem] leading-[1.75] text-ink-mid">
-            Best reached by email. I reply to everything that is not a
-            recruiter template.
+            {profile.contactNote}
           </p>
           <a
             href={`mailto:${profile.email}`}

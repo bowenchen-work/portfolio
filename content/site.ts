@@ -25,6 +25,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/bowenchen-work",
   cvPath: "/cv.pdf", // drop your PDF into /public as cv.pdf
   status: "Open to junior roles",
+  contactNote: "Best reached by email. I read everything.",
 };
 
 export type Status = "live" | "building" | "archived";

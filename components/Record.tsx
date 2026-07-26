@@ -46,10 +46,10 @@ export default function Record({ project }: { project: Project }) {
         <Field label="Problem">{project.problem}</Field>
         <Field label="Approach">{project.approach}</Field>
         <Field label="Decision">
-          <span className="block font-medium text-ink">
+          <strong className="block font-medium text-ink">
             {project.decision.title}
-          </span>
-          <span className="mt-1 block">{project.decision.body}</span>
+          </strong>
+          <p className="mt-1">{project.decision.body}</p>
         </Field>
         <Field label="Stack">
           <ul className="flex flex-wrap gap-x-3 gap-y-1">
