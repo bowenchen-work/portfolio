@@ -152,11 +152,14 @@ One accent, used in exactly two places. Everything else is ink on paper.
 - **IBM Plex Mono** — tabular data only: dates, IDs, stack lists, field
   labels, status chips.
 
-**The mono rule is load-bearing.** Monospace earns its place by aligning
-columns. The moment it appears in a headline it becomes costume, and the
-site collapses into the terminal-aesthetic genre I'm specifically
-avoiding. Mono in a data column is functional; mono in a heading is
-cosplay.
+**The mono rule is load-bearing.** Monospace is permitted for tabular
+data (dates, IDs, stack lists) and structural labels — field labels,
+status chips, section labels like "Work" or "Contact". It is never
+permitted for prose headings, project titles, or the display name. The
+moment it appears in one of those, it becomes costume, and the site
+collapses into the terminal-aesthetic genre I'm specifically avoiding.
+Mono in a data column or a structural label is functional; mono in a
+prose headline is cosplay.
 
 ### The signature element
 

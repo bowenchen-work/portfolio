@@ -97,7 +97,7 @@ export default function Home() {
           </p>
           <a
             href={`mailto:${profile.email}`}
-            className="mt-4 inline-block font-[family-name:var(--font-display)] text-[1.75rem] text-ink underline decoration-rule-strong underline-offset-[7px] transition-colors hover:decoration-signal"
+            className="mt-4 inline-block text-[1.75rem] text-ink underline decoration-rule-strong underline-offset-[7px] transition-colors hover:decoration-signal"
           >
             {profile.email}
           </a>
