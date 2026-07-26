@@ -24,8 +24,10 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bowenchen.dev"),
   title: `${profile.name} — ${profile.role}`,
   description: profile.summary,
+  alternates: { canonical: "/" },
   openGraph: {
     title: `${profile.name} — ${profile.role}`,
     description: profile.summary,
