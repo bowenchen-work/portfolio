@@ -137,6 +137,27 @@ export type Role = {
 // Delete this array entirely if you have nothing yet — an empty
 // section is worse than no section.
 export const experience: Role[] = [
+  {
+    title: "IT Technician",
+    org: "Avizor",
+    start: "2025-05",
+    end: "2025-07",
+    location: "Leganés, Madrid",
+    oneLine:
+      "Three months of desktop and server support at a Madrid contact-lens " +
+      "manufacturer that also produces private-label products for other " +
+      "health and pharmaceutical brands.",
+    context:
+      "Curricular internship for my SMR qualification (Computer Systems " +
+      "and Network Technician).",
+    work:
+      "Managed server backups and administered user accounts in Active " +
+      "Directory and Azure. Repaired and maintained desktop hardware and " +
+      "software across Mac and PC, and supported the workstations attached " +
+      "to the testing equipment in Avizor's chemistry and microbiology labs.",
+    stack: ["Windows Server 2019", "Active Directory"],
+  },
+
   // {
   //   title: "Web Developer Intern",
   //   org: "Company",
