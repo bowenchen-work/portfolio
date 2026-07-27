@@ -1,5 +1,5 @@
 import { profile, projects, experience } from "@/content/site";
-import Record from "@/components/Record";
+import Record, { Field } from "@/components/Record";
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
@@ -67,26 +67,43 @@ export default function Home() {
         {experience.length > 0 && (
           <section className="pt-16 sm:pt-20">
             <SectionHeading>Experience</SectionHeading>
-            <ul className="divide-y divide-rule border-y border-rule">
-              {experience.map((r) => (
-                <li
-                  key={`${r.org}-${r.start}`}
-                  className="grid grid-cols-1 gap-1 py-5 sm:grid-cols-[8.5rem_1fr] sm:gap-6"
-                >
-                  <span className="data pt-[5px] tabular-nums">
-                    {r.start} — {r.end}
+            {experience.map((r) => (
+              <article
+                key={`${r.org}-${r.start}`}
+                className="border-t border-rule py-8 first:border-t-0 sm:py-10"
+              >
+                <header className="mb-2 flex flex-wrap items-baseline gap-x-4 gap-y-2">
+                  <span className="data tabular-nums">
+                    {r.start} — {r.end ?? "present"}
                   </span>
-                  <div className="max-w-[62ch]">
-                    <p className="text-[0.9375rem] font-medium text-ink">
-                      {r.title}, {r.org}
-                    </p>
-                    <p className="mt-1 text-[0.9375rem] leading-[1.7] text-ink-mid">
-                      {r.body}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+                  <h3 className="text-[1.375rem] font-medium tracking-[-0.01em] text-ink">
+                    {r.title} — {r.org}
+                  </h3>
+                  <span className="data">{r.location}</span>
+                </header>
+
+                <p className="mb-4 max-w-[62ch] text-[0.9375rem] text-ink-mid sm:mb-6">
+                  {r.oneLine}
+                </p>
+
+                <dl className="divide-y divide-rule border-y border-rule">
+                  <Field label="Context">{r.context}</Field>
+                  <Field label="Work">{r.work}</Field>
+                  <Field label="Stack">
+                    <ul className="flex flex-wrap gap-x-3 gap-y-1">
+                      {r.stack.map((s) => (
+                        <li
+                          key={s}
+                          className="font-[family-name:var(--font-mono)] text-[0.75rem] text-ink-mid"
+                        >
+                          {s}
+                        </li>
+                      ))}
+                    </ul>
+                  </Field>
+                </dl>
+              </article>
+            ))}
           </section>
         )}
 

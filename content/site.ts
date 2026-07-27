@@ -125,9 +125,13 @@ export const projects: Project[] = [
 export type Role = {
   title: string;
   org: string;
-  start: string;
-  end: string; // "present" is fine
-  body: string;
+  start: string; // YYYY-MM
+  end: string | null; // null = present
+  location: string;
+  oneLine: string; // one sentence — what you did, org context subordinate
+  context: string; // why this role existed (program, internship type)
+  work: string; // what you actually did, in prose
+  stack: string[]; // named technologies only — no skill-tag keywords
 };
 
 // Delete this array entirely if you have nothing yet — an empty
@@ -137,7 +141,11 @@ export const experience: Role[] = [
   //   title: "Web Developer Intern",
   //   org: "Company",
   //   start: "2026-01",
-  //   end: "present",
-  //   body: "What you were responsible for and what shipped because of you.",
+  //   end: null,
+  //   location: "City, Country",
+  //   oneLine: "One sentence a non-technical person would understand.",
+  //   context: "Why this role existed — program, internship type, etc.",
+  //   work: "What you were responsible for and what you actually did.",
+  //   stack: ["Named technology", "..."],
   // },
 ];

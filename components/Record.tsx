@@ -16,7 +16,7 @@ function StatusChip({ status }: { status: Status }) {
   );
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
+export function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="grid grid-cols-1 gap-1 py-4 sm:grid-cols-[8.5rem_1fr] sm:gap-6">
       <dt className="data pt-[5px]">{label}</dt>
