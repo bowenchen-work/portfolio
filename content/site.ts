@@ -4,8 +4,9 @@
 //   1. Never add an entry you cannot talk about for 10 minutes.
 //   2. "building" status is allowed ONLY with a real name and a
 //      real one-line description. No vague "coming soon" ghosts.
-//   3. Every project needs a `decision` — a real tradeoff you
-//      made and why. That field is the whole point of the site.
+//   3. Every live or archived project needs a `decision` — a real
+//      tradeoff you made and why. That field is the whole point of
+//      the site.
 // ─────────────────────────────────────────────────────────────
 
 export const profile = {
@@ -31,21 +32,28 @@ export const profile = {
 
 export type Status = "live" | "building" | "archived";
 
-export type Project = {
-  id: string;
-  title: string;
-  date: string; // YYYY-MM
-  status: Status;
-  oneLine: string;
+type ProjectDetail = {
   problem: string;
   approach: string;
   decision: { title: string; body: string };
   stack: string[];
+};
+
+export type Project = {
+  id: string;
+  title: string;
+  date: string; // YYYY-MM
+  oneLine: string;
   // Repo URL, or null for closed source. Required, so every project
   // states it deliberately — null renders as "Closed source".
   source: string | null;
   links: { label: string; href: string }[];
-};
+} & (
+  | ({ status: "live" | "archived" } & ProjectDetail)
+  // A "building" entry may go up with just a name and a one-liner
+  // (rule 2 above). The detail fields are required once it ships.
+  | ({ status: "building" } & Partial<ProjectDetail>)
+);
 
 export const projects: Project[] = [
   {

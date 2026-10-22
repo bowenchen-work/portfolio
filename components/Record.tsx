@@ -43,26 +43,30 @@ export default function Record({ project }: { project: Project }) {
       </p>
 
       <dl className="divide-y divide-rule border-y border-rule">
-        <Field label="Problem">{project.problem}</Field>
-        <Field label="Approach">{project.approach}</Field>
-        <Field label="Decision">
-          <strong className="block font-medium text-ink">
-            {project.decision.title}
-          </strong>
-          <p className="mt-1">{project.decision.body}</p>
-        </Field>
-        <Field label="Stack">
-          <ul className="flex flex-wrap gap-x-3 gap-y-1">
-            {project.stack.map((s) => (
-              <li
-                key={s}
-                className="font-[family-name:var(--font-mono)] text-[0.75rem] text-ink-mid"
-              >
-                {s}
-              </li>
-            ))}
-          </ul>
-        </Field>
+        {project.problem && <Field label="Problem">{project.problem}</Field>}
+        {project.approach && <Field label="Approach">{project.approach}</Field>}
+        {project.decision && (
+          <Field label="Decision">
+            <strong className="block font-medium text-ink">
+              {project.decision.title}
+            </strong>
+            <p className="mt-1">{project.decision.body}</p>
+          </Field>
+        )}
+        {project.stack && (
+          <Field label="Stack">
+            <ul className="flex flex-wrap gap-x-3 gap-y-1">
+              {project.stack.map((s) => (
+                <li
+                  key={s}
+                  className="font-[family-name:var(--font-mono)] text-[0.75rem] text-ink-mid"
+                >
+                  {s}
+                </li>
+              ))}
+            </ul>
+          </Field>
+        )}
         <Field label="Links">
           <ul className="flex flex-wrap gap-x-5 gap-y-1">
             {[
