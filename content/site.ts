@@ -41,6 +41,9 @@ export type Project = {
   approach: string;
   decision: { title: string; body: string };
   stack: string[];
+  // Repo URL, or null for closed source. Required, so every project
+  // states it deliberately — null renders as "Closed source".
+  source: string | null;
   links: { label: string; href: string }[];
 };
 
@@ -72,9 +75,8 @@ export const projects: Project[] = [
         "answer can cite the dataset and fetch timestamp it came from.",
     },
     stack: ["Python", "FastAPI", "PostgreSQL + pgvector", "Claude API", "Next.js", "Docker"],
-    links: [
-      { label: "Source", href: "https://github.com/bowenchen-work/prism" },
-    ],
+    source: "https://github.com/bowenchen-work/prism",
+    links: [],
   },
 
   {
@@ -98,9 +100,8 @@ export const projects: Project[] = [
         "length, so the layout stays honest as the site grows.",
     },
     stack: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Vercel"],
-    links: [
-      { label: "Source", href: "https://github.com/bowenchen-work/portfolio" },
-    ],
+    source: "https://github.com/bowenchen-work/portfolio",
+    links: [],
   },
 
   // ── Template. Copy this for each new project. Delete before shipping. ──
@@ -118,6 +119,7 @@ export const projects: Project[] = [
   //            interviewers actually read.",
   //   },
   //   stack: ["...", "..."],
+  //   source: "https://github.com/...", // or null if closed source
   //   links: [{ label: "Live", href: "https://..." }],
   // },
 ];

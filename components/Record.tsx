@@ -63,24 +63,26 @@ export default function Record({ project }: { project: Project }) {
             ))}
           </ul>
         </Field>
-        {project.links.length > 0 && (
-          <Field label="Links">
-            <ul className="flex flex-wrap gap-x-5 gap-y-1">
-              {project.links.map((l) => (
-                <li key={l.href}>
-                  <a
-                    href={l.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-ink underline decoration-rule-strong underline-offset-[5px] transition-colors hover:decoration-signal"
-                  >
-                    {l.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </Field>
-        )}
+        <Field label="Links">
+          <ul className="flex flex-wrap gap-x-5 gap-y-1">
+            {[
+              ...project.links,
+              ...(project.source ? [{ label: "Source", href: project.source }] : []),
+            ].map((l) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-ink underline decoration-rule-strong underline-offset-[5px] transition-colors hover:decoration-signal"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+            {project.source === null && <li>Closed source</li>}
+          </ul>
+        </Field>
       </dl>
     </article>
   );
