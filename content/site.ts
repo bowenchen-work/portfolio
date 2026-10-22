@@ -13,19 +13,16 @@ export const profile = {
   name: "Bowen Chen",
   // One line. What you build, for whom. No adjectives like "passionate".
   role: "Web developer",
-  // 2–3 sentences, first person, specific. Replace this entirely.
   summary:
     "I'm a first-year DAW student in Madrid, previously working in systems " +
     "administration — Linux, Windows Server, virtualisation, scripting. That " +
-    "taught me to care about how things run, not just how they look. I'm " +
-    "currently building Prism, a dashboard that makes CDC and WHO " +
-    "epidemiological data queryable in plain language.",
+    "taught me to care about how things run, not just how they look.",
   location: "Madrid, Spain",
   languages: "Spanish (native) · English (near-native) · Mandarin (native spoken)",
   email: "hello@bowenchen.dev",
   github: "https://github.com/bowenchen-work",
   linkedin: "https://www.linkedin.com/in/bowenchen-work",
-  cvPath: "/cv.pdf", // drop your PDF into /public as cv.pdf
+  cvPath: "/cv.pdf",
   status: "Open to junior roles",
   contactNote: "Best reached by email. I read everything.",
 };
@@ -57,37 +54,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: "prism",
-    title: "Prism",
-    date: "2026-07",
-    status: "building",
-    oneLine:
-      "A dashboard that makes CDC and WHO epidemiological data queryable " +
-      "in plain language.",
-    problem:
-      "CDC and WHO publish authoritative epidemiological data across dozens " +
-      "of endpoints, in formats built for specialists. Answering something " +
-      "as simple as how flu activity in Spain compares to last year means " +
-      "knowing which endpoint holds it and how to parse it.",
-    approach:
-      "A FastAPI backend that ingests CDC and WHO data, chunks and embeds " +
-      "it into a pgvector store, and answers natural-language queries by " +
-      "retrieving relevant context and passing it to the Claude API. The " +
-      "backend runs; retrieval, ingestion and the dashboard are in progress.",
-    decision: {
-      title: "Retrieval over fine-tuning",
-      body:
-        "Epidemiological data changes weekly, so a fine-tuned model goes " +
-        "stale between updates and costs a retraining cycle to correct. " +
-        "Retrieval keeps the model fixed and the data live, and every " +
-        "answer can cite the dataset and fetch timestamp it came from.",
-    },
-    stack: ["Python", "FastAPI", "PostgreSQL + pgvector", "Claude API", "Next.js", "Docker"],
-    source: "https://github.com/bowenchen-work/prism",
-    links: [],
-  },
-
-  {
     id: "portfolio",
     title: "bowenchen.dev",
     date: "2026-07",
@@ -101,14 +67,28 @@ export const projects: Project[] = [
       "file as the source of truth, so publishing a new project is one commit and " +
       "the layout can never drift out of sync with the data.",
     decision: {
-      title: "A register layout instead of a card grid",
+      title: "A register, not a card grid",
       body:
-        "A card grid advertises how much work you have; with three projects it " +
-        "reads as empty space. A dated register reads as a complete record at any " +
-        "length, so the layout stays honest as the site grows.",
+        "The cost: cards are more eye-catching and more engaging than text, " +
+        "and a non-technical HR reviewer would likely prefer them. I chose the " +
+        "register because it gets straight to the point with no fluff, suits a " +
+        "technical visitor with genuine curiosity, and still reads as a " +
+        "complete record with only two projects.",
     },
     stack: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Vercel"],
     source: "https://github.com/bowenchen-work/portfolio",
+    links: [],
+  },
+
+  {
+    id: "prism",
+    title: "Prism",
+    date: "2026-09",
+    status: "building",
+    oneLine:
+      "A social media platform where original creators are credited by " +
+      "default and you regain control of your time.",
+    source: null,
     links: [],
   },
 
