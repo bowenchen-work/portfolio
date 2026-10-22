@@ -8,67 +8,61 @@ inconvenient.
 
 ## 1. Who this is for and what it has to do
 
-I'm Bowen Chen, an early-career web developer. My previous portfolio was
-an unmodified Bootstrap template: lorem ipsum on the About page, six
-placeholder cards reading "Card title / Short text / Go somewhere", and
-the same test image repeated six times. Zero real projects.
+I'm Bowen Chen, an early-career web developer. "Systems person who
+learned to code, not a coder who vaguely heard of servers."
 
-I have **almost no shipped work yet**. That's the actual constraint, and
-every decision in this project follows from it.
+My previous portfolio was an unmodified Bootstrap template: lorem ipsum
+on the About page, six placeholder cards reading "Card title / Short
+text / Go somewhere", and the same test image repeated six times. Zero
+real projects.
+
+I have **almost no shipped work yet**: one live project, this site.
+That's the actual constraint, and every decision in this project follows
+from it.
 
 The site's single job: convince a hiring manager, in under sixty seconds,
 that I build real things and think clearly about tradeoffs.
 
-### The planned lineup
+### About me
 
-Four projects, ordered by how much a hiring employer is likely to care.
-This is display order on the site and build order in my calendar. Note
-that this is *not* the order I find them most fun, which is the point.
+- Studying DAW (Desarrollo de Aplicaciones Web), first year, Madrid,
+  2026–2027 school year.
+- Prior hands-on sysadmin experience: Ubuntu Server, Amazon Linux, Active
+  Directory, DNS, DHCP, SSH, AWS EC2, VirtualBox.
+- Time per week: varies a lot week to week and is unpredictable.
+- Not that interested in health-related environments. Don't propose
+  health projects.
 
-**1. Video service website** — highest technical signal.
-Real production problems live here: file upload, storage, transcoding,
-streaming delivery, auth, database schema. These are the things backend
-and full-stack interviews actually probe. Nothing else on this list
-generates as many honest `DECISION` fields.
-*Risk: scope.* Transcoding and adaptive streaming can eat six months.
-Scope it down hard before writing code — a working upload → transcode →
-playback loop for one video format beats an unfinished platform.
+### The lineup (next six months)
 
-**2. Health AI-powered website** — highest market relevance.
-AI integration is the most in-demand differentiator right now, and it's
-the one thing on this list that reads as current rather than generic.
-*Two real caveats.* First, "LLM API wrapped in a chat box" is already a
-crowded, low-signal category — the project only scores if the AI does
-something structurally interesting (retrieval over real data, structured
-extraction, validation) rather than proxying a prompt. Second, health is
-a domain where a naive build is a *negative* signal: anything that
-resembles diagnosis or medical advice will get probed in an interview,
-and "I didn't think about that" is a bad answer. Prefer framings where
-being wrong is cheap — appointment preparation, medication schedule
-tracking, parsing lab result PDFs into structured data, nutrition
-lookup. Be ready to answer "what happens when the model is wrong."
+"Prism Social Media Web App prototype, later Prism Social Media with real
+modern in-use frameworks and tools prototype version." Nothing else is on
+the lineup.
 
-**3. bowenchen.dev — this portfolio** — table stakes.
-Proves I can ship, deploy, and make design decisions. Necessary, and the
-least differentiating of the four, because every candidate has one. It
-earns its place by being genuinely finished, not by being clever.
+### Prism
 
-**4. Godot video game** — lowest relevance, highest memorability.
-For a web role this doesn't map to the job, and it should never be the
-first thing a recruiter sees. It's worth keeping because finishing a game
-is real evidence of persistence and systems thinking, and because it
-makes me a person rather than a stack list. *Risk: completion.* Games are
-the single most likely category to never ship. If it stalls, it stays at
-`status: "building"` with an honest one-liner, or it comes off entirely.
+- The CDC/WHO health dashboard version is dead.
+- One-liner: "A social media platform where original creators are
+  credited by default and you regain control of your time."
+- Closed source. Prism's repo stays private.
+- Plan for presenting it publicly: a link to the live social media, real
+  statistics, and maybe a non-detailed diagram of some of my algorithms
+  and architectural designs. Statistics must be real and sourced. Any
+  diagram is a static image or SVG, with no client JS and no new
+  dependency.
+- On the site it is a `building` entry: name, one-liner, and
+  `source: null`. The other fields wait until it can fill `DECISION`
+  (section 4).
 
 **Sequencing rule — this matters more than the ordering.** I currently
-have zero shipped projects. Four projects in progress at once is exactly
-the failure mode this whole document exists to prevent. Build one at a
-time. Each one goes **live on the internet** before the next one starts.
-A finished small thing outranks three impressive drafts, every time.
+have one shipped project. One project in progress: Prism, in two stages.
+More than one project in progress at once is exactly the failure mode
+this whole document exists to prevent. Build one at a time. Each one
+goes **live on the internet** before the next one starts. A finished
+small thing outranks three impressive drafts, every time.
 
-If I ask to start project 2 while project 1 is unshipped, say so and
-point at this paragraph.
+If I ask to start the later Prism version while the prototype is
+unshipped, say so and point at this paragraph.
 
 ---
 
@@ -96,8 +90,8 @@ thing that is 80% done. When you have to choose between polish and
 completion, choose completion and tell me what you cut.
 
 There is no real data on hiring rates by portfolio style — that number
-doesn't exist, and most published statistics in this space are
-fabricated. Don't optimise against invented metrics. Optimise for
+doesn't exist, and most published statistics in this space have no
+traceable source. Don't optimise against invented metrics. Optimise for
 "finished, honest, fast."
 
 ---
@@ -117,6 +111,9 @@ fabricated. Don't optimise against invented metrics. Optimise for
   a typed TypeScript file. Adding infrastructure to a personal site is
   procrastination dressed as engineering.
 - **Deploys to Vercel** from a GitHub repo, with a custom domain.
+- **Repository:** public, with a README. CI (build + typecheck on push)
+  is a later, separate task and isn't added yet. No ARCHITECTURE.md: one
+  data file and one component don't need a diagram.
 
 ---
 
@@ -137,13 +134,16 @@ to fifteen.
 --color-paper       #f7f7f5   cool off-white, not cream
 --color-ink         #17181a
 --color-ink-mid     #62656a   body copy
---color-ink-faint   #9a9c9f   data labels
+--color-ink-faint   #6b6e73   data labels (4.77:1 on paper, WCAG AA)
 --color-rule        #e0e0dc   hairlines
 --color-rule-strong #c9c9c3   emphasis rules, underlines
---color-signal      #2f6b4f   deep green — status and link hover ONLY
+--color-signal      #2f6b4f   deep green — status, link hover, focus rings ONLY
 ```
 
-One accent, used in exactly two places. Everything else is ink on paper.
+One accent, used in exactly three places: status, link hover, and
+keyboard focus rings (a section 7 requirement). Everything else is ink on
+paper. Known exception: the `::selection` highlight uses a hard-coded
+pale green (`#d9e5de`), not a token.
 
 ### Type
 
@@ -174,13 +174,34 @@ PROBLEM    What was broken or missing.
 APPROACH   What I built and how.
 DECISION   The tradeoff, stated as a claim, then why.
 STACK      Technologies actually used.
-LINKS      Live / source.
+LINKS      Live, then Source — or "Closed source" (source: null).
 ```
 
 **`DECISION` is the entire point of this site.** Problem and stack are
 table stakes that anyone can fake. The tradeoff I made and why is the
-only field that demonstrates thinking rather than exposure. If a project
-can't fill that field, the project isn't finished and doesn't go up.
+only field that demonstrates thinking rather than exposure. A DECISION
+names the cost of the choice, not just its justification (see the
+Decisions log). If a project can't fill that field, the project isn't
+finished: it can appear only as `building`, with a real name and
+one-liner (section 5, rule 2), and the type won't let it be marked
+`live` or `archived` until DECISION is filled.
+
+### The experience record
+
+A role is not a project, so it doesn't get PROBLEM / APPROACH /
+DECISION. It has its own fixed field set, also a semantic `<dl>`:
+
+```
+2025-05 — 2025-07   Leganés, Madrid
+IT Technician — Avizor
+One sentence: what I did, with the organisation as context.
+─────────────────────────────────────────────
+CONTEXT    Why the role existed (program, internship type).
+WORK       What I actually did, in prose.
+STACK      Named technologies only — no skill-tag keywords.
+```
+
+An ongoing role has `end: null`, rendered as "present".
 
 ---
 
@@ -196,11 +217,11 @@ out of sync with the data.
 
 ### Ordering
 
-Entries display in the curated order given in section 1, strongest
-first — not reverse-chronological. A register can be curated; the dates
-stay real and visible, so nothing about it is dishonest. The reason is
-blunt: a recruiter reads the first entry and maybe the second. The
-strongest project has to be the one they hit first.
+Entries display strongest first: live entries before building entries —
+not reverse-chronological. A register can be curated; the dates stay
+real and visible, so nothing about it is dishonest. The reason is blunt:
+a recruiter reads the first entry and maybe the second. The strongest
+project has to be the one they hit first.
 
 Implement this as an explicit array order in `content/site.ts`. Do not
 add a sort function — the array order *is* the decision, and it should be
@@ -223,6 +244,9 @@ visible in the file I edit.
    metrics, or testimonials. If you need a fact, ask.
 5. **An empty section is deleted, not populated.** If I have no
    experience entries, the Experience section does not render.
+6. **Describe what my projects do, not what other platforms do wrong.**
+   Contrast is fine; accusation isn't. No accusing potential big tech
+   workers and employers: they're the people reading this site.
 
 ---
 
@@ -289,39 +313,49 @@ them.
   hollow copy this whole project exists to avoid.
 - **Tell me when I'm procrastinating.** If I start asking for animations
   while the project count is still one, say it plainly.
+- Next.js 16.4 ships its own docs in `node_modules/next/dist/docs/`, so
+  check them before using an API.
 
 ---
 
-## 9. Current state and first task
+## 9. Current state
 
-The scaffold exists and builds clean: `content/site.ts`,
-`components/Record.tsx`, `app/page.tsx`, `app/layout.tsx`,
-`app/globals.css`, and a README. One real project entry is written — the
-site itself.
+The site's current content is `content/site.ts`; what changed and when is
+`git log`. This section deliberately repeats neither, because the July
+version of it went stale.
 
-**First task:**
+---
 
-1. Run the build, confirm it passes, and show me the site running.
-2. Audit against sections 4, 6, and 7 above. Report anything that
-   violates them — including anything in the existing code.
-3. List every `TODO` in `content/site.ts` and ask me for the values, one
-   batch, no guessing.
-4. Then stop. Do not add features. The next work is content, and that's
-   mine to write.
+## 10. Decisions log
 
-**Still unresolved — ask me, don't assume:**
+Each entry carries its reason, like every rule above.
 
-1. **What "video service website" means.** A video-on-demand platform
-   with upload and playback is a very different project from a marketing
-   site for a videography business. The first is a strong technical
-   entry; the second is a brochure. Get this pinned down before any
-   architecture discussion.
-2. **What the health project actually does.** See the caveats in section
-   1. Nail the concrete use case before touching an API key.
-3. **How much time I have per week**, and whether I'm studying, working,
-   or between things. This changes the correct scope of every project on
-   the list. Ask once, write the answer into section 1, and scope
-   accordingly from then on.
-
-Do not propose implementation plans for projects 1 or 2 until you have
-answers. Guessing here wastes weeks, not hours.
+- **Analytics: held off entirely.** Vercel's deployment dashboard
+  already provides request-level data at zero cost with no code changes.
+  For a portfolio shared directly with known contacts, raw visitor
+  counts don't inform decisions. If analytics are ever added, Vercel Web
+  Analytics is the only compliant option (cookieless, GDPR-safe,
+  lightweight). Google Analytics is ruled out because of the cookie,
+  consent-banner and overhead cost. Any analytics addition requires an
+  explicit brief update, not incremental drift.
+- **DECISION fields must name costs and tradeoffs explicitly, not just
+  justify choices.** Without that they become self-congratulatory.
+- **Scope crossings get flagged before committing, not after.** Claude
+  Code must tell me what it wants to do before doing it, because the
+  changes it makes in production may be very expensive. I fear it does
+  something it thought I wanted but actually just hallucinated. When I
+  check it afterwards, I probably wouldn't understand what that code
+  does. And it's important to know what my decisions would actually do
+  to the project: if Claude Code does it without my knowing, I wouldn't
+  know why it made such decisions.
+- **The portfolio repo is public with no license (all rights
+  reserved).** Prism is closed source, so this repo is the only code a
+  reviewer can read, and the design is already visible in the deployed
+  HTML and CSS anyway.
+- **Closed-source projects use `source: null`, rendered as "Closed
+  source".** The compiler forces a deliberate answer, the same reasoning
+  as `end: string | null` on Role.
+- **AGENTS.md is turned off with `agentRules: false`.** One instruction
+  file (CLAUDE.md), not two that can drift apart.
+- **Commits use my GitHub noreply address.** The repo is public, and
+  commit metadata is readable by anyone.
