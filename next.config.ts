@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // CLAUDE.md is this repo's only instruction file. Without this,
+  // `next dev` writes an AGENTS.md whenever it detects a coding agent.
+  agentRules: false,
 };
 
 export default nextConfig;
